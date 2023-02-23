@@ -11,6 +11,13 @@
 #define ON_TIME    1000
 #define OFF_TIME   1000
 
+#define LED_PORT    PortA
+
+#define LED1_PIN     Pin0
+#define LED2_PIN     Pin1
+#define LED3_PIN     Pin2
+#define LED4_PIN     Pin3
+
 void HLED_vidLedInit(void);
 void HLED_vidLedON(u8 LED_PORT,u8 LED_PIN);
 void HLED_vidLedOFF(u8 LED_PORT,u8 LED_PIN);
