@@ -1,6 +1,6 @@
 
 #include"DCM_interface.h"
-#include"../MCAL/DIO/DIO_interface.h"
+#include"../../MCAL/DIO/DIO.h"
 
 void DCM_voidDCMOn(DCM_TYPE copy_DCMStructDCM1)
 

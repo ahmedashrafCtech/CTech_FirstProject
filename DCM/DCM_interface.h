@@ -1,5 +1,5 @@
-#include"../SERVICES/STD_TYPES.h"
-#include"../DIO/DIO_interface.h"
+#include"../../LIB/STD_TYPES.h"
+#include"../../MCAL/DIO/DIO.h"
 
 
 #define DCM_FORWARD 1
