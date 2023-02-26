@@ -2,10 +2,9 @@
 #ifndef		DIO_H
 #define		DIO_H
 
-#include "../../LIB/STD_TYPES.h"
-#include "../../LIB/BIT_MATH.h"
+#include "STD_TYPES.h"
+#include "BIT_MATH.h"
 
-#include "DIO_reg.h"
 
 #define 	PORT_HIGH_VAL 	0xFF
 #define		PORT_LOW_VAL	0x00
