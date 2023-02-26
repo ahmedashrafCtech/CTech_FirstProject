@@ -28,7 +28,7 @@ void DIO_SetDir(Port_Num Port, Pin_Num Pin, Pin_DirType Pin_Dir)
 
 void DIO_ENPullup(Port_Num Port, Pin_Num Pin)
 {
-	WRITE_BIT(DIO_SFIOR_REG,DIO_SFIOR_PUD,STD_HIGH);
+	WRITE_BIT(DIO_SFIOR_REG,DIO_SFIOR_PUD,STD_LOW);
 	DIO_WrtPin(Port, Pin, Pin_High);
 }
 
