@@ -37,6 +37,11 @@
 /* External Interrupt Request 2 */
 #define INT2_vect			__vector_3
 
+/* Timer/Counter0 Compare Match */
+#define TIMER0_COMP_vect		__vector_10
+/* Timer/Counter0 Overflow */
+#define TIMER0_OVF_vect			__vector_11
+
 #define  BAD_vect               __vector_default
 
 #  define ISR(vector,...)            \
