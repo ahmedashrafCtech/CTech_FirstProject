@@ -130,3 +130,22 @@ void LCD_voidGoTo(u8 Copy_u8Row , u8 Copy_u8Column)
 
 	LCD_voidSendCmd(Local_u8Position);
 }
+
+/**************************************************************************************/
+
+void CLCD_voidDisplayNumber(u32 Copy_u32DisplayedNumber)
+ {
+         u32 Local_u32Reserved = 1 ;
+
+         while(Copy_u32DisplayedNumber != 0)
+         {
+                 Local_u32Reserved=Local_u32Reserved*10 + Copy_u32DisplayedNumber%10 ;
+                 Copy_u32DisplayedNumber/=10;
+         }
+         do
+         {
+                 LCD_voidSendData((Local_u32Reserved%10)+'0');
+                 Local_u32Reserved/=10;
+         }
+         while(Local_u32Reserved!=1);
+ }

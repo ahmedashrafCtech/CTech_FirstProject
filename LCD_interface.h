@@ -28,6 +28,9 @@ void LCD_voidSendString(char * Copy_ptrString);
 /*this function is to start typing from a certain cell of the LCD*/
 void LCD_voidGoTo(u8 Copy_u8Row , u8 Copy_u8Column);
 
+/*this function is to display a certain number*/
+void LCD_voidSendNumber(u32 Copy_u32DisplayedNumber);
+
 
 
 
