@@ -19,6 +19,14 @@ void LCD_voidSendData(u8 Copy_u8Data);
 /*this function is to initialize the LCD*/
 void LCD_voidInit8Bit(void);
 
+/*this function is to clear the whole display and return DDRAM to H00*/
+void LCD_voidClearDisplay(void);
+
+/*this function is to send a full string*/
+void LCD_voidSendString(char * Copy_ptrString);
+
+/*this function is to start typing from a certain cell of the LCD*/
+void LCD_voidGoTo(u8 Copy_u8Row , u8 Copy_u8Column);
 
 
 

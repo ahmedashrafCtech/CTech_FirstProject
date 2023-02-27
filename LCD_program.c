@@ -32,6 +32,7 @@ void LCD_voidSendCmd(u8 Copy_u8Command)
 	_delay_ms(1);
 }
 
+/**************************************************************************************/
 
 void LCD_voidSendData(u8 Copy_u8Data)
 {
@@ -53,6 +54,7 @@ void LCD_voidSendData(u8 Copy_u8Data)
 	_delay_ms(1);
 }
 
+/**************************************************************************************/
 
 void LCD_voidInit8Bit(void)
 {
@@ -83,6 +85,48 @@ void LCD_voidInit8Bit(void)
 	/*7)delay for more than 1.53ms*/
 	_delay_ms(2);
 
+}
 
+/**************************************************************************************/
 
+void LCD_voidClearDisplay(void)
+{
+	/*sending clear display command*/
+	LCD_voidSendCmd(DISPLAY_CLEAR);
+}
+
+/**************************************************************************************/
+
+void LCD_voidSendString(char * Copy_ptrString)
+{
+	/*local variable to iterate over strings' characters*/
+	u8 Local_u8Iterator = 0 ;
+
+	/*sending characters until it gets to  null characters*/
+	while(Copy_ptrString[Local_u8Iterator] != '\0')
+	{
+		LCD_voidSendData(Copy_ptrString[Local_u8Iterator]);
+		Local_u8Iterator ++ ;
+	}
+}
+
+/**************************************************************************************/
+
+void LCD_voidGoTo(u8 Copy_u8Row , u8 Copy_u8Column)
+{
+	/*local variable to assign address counter value*/
+	u8 Local_u8Position ;
+
+	/*in case of writing in the first row*/
+	if(Copy_u8Row == 1)
+		Local_u8Position = Copy_u8Column ;
+
+	/*in case of writing in the second row*/
+	else if(Copy_u8Row == 2)
+		Local_u8Position = Copy_u8Column + 0x40 ;
+
+	/*setting the command to contain 1 in MSB and address in remaining bits*/
+	Local_u8Position |= (1<<7);
+
+	LCD_voidSendCmd(Local_u8Position);
 }

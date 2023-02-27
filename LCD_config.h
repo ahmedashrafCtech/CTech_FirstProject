@@ -7,7 +7,7 @@
 /**********************configurable parameters********************/
 
 /*data port*/
-#define DATA_PORT        PortA
+#define DATA_PORT        PortD
 
 /*data pins*/
 #define DATA_PIN0        Pin0
