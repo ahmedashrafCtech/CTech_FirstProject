@@ -21,10 +21,9 @@ void WDT_vidStart(u8 Time )
 	
 }
 
-void WDT_vidRefresh(u8 Time)
+void WDT_vidRefresh(void)
 {
-	WDTCR_REG &= WDT_PRESCALER_MASK  ;
-	WDTCR_REG |= Time ;
+	asm("WDR");
 }
 
 void WDT_vidStop(void)

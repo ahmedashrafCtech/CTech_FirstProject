@@ -17,7 +17,7 @@
 #define WDT_TIME_2s1        7
 
 void WDT_vidStart( u8 );
-void WDT_vidRefresh(u8);
+void WDT_vidRefresh(void);
 void WDT_vidStop(void);
 
 
