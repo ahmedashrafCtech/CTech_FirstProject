@@ -46,6 +46,16 @@ void M_IIC_void_sendByte(u8 copy_u8data)
 	// wait until job is done
 	while(GET_BIT(TWCR_REG,TWINT_BIT) == 0);
 }
+void M_IIC_void_receiveByte_ACK(u8 * ptr)
+{
+	// clear flag , enable TWI , Enable ACK
+	TWCR_REG = (1<<TWINT_BIT) | (1<<TWEN_BIT) | (1<< TWEA_BIT);
+	// wait until job is done
+	while(GET_BIT(TWCR_REG,TWINT_BIT) == 0);
+
+	// return data
+	*ptr =  TWDR_REG;
+}
 u8   M_IIC_u8_getStatus(void)
 {
 	return (TWSR_REG & IIC_STATUS_MASK);
