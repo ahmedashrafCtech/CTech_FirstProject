@@ -133,7 +133,7 @@ void LCD_voidGoTo(u8 Copy_u8Row , u8 Copy_u8Column)
 
 /**************************************************************************************/
 
-void CLCD_voidDisplayNumber(u32 Copy_u32DisplayedNumber)
+void LCD_voidSendNumber(u32 Copy_u32DisplayedNumber)
  {
          u32 Local_u32Reserved = 1 ;
 

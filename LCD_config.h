@@ -7,7 +7,7 @@
 /**********************configurable parameters********************/
 
 /*data port*/
-#define DATA_PORT        PortD
+#define DATA_PORT        PortA
 
 /*data pins*/
 #define DATA_PIN0        Pin0
@@ -20,7 +20,7 @@
 #define DATA_PIN7        Pin7
 
 /*control port*/
-#define CTRL_PORT        PortB
+#define CTRL_PORT        PortD
 
 /*control pins*/
 #define RS_PIN           Pin0
