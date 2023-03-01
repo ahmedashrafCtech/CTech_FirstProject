@@ -14,7 +14,7 @@ volatile u16 c=0,flag,ton,ttotal;
 volatile s32 T_total;
 void func1(void)
 {
-	if (flag==0)
+	/*if (flag==0)
 	{
 		ton=10;
 		flag=1;
@@ -28,12 +28,14 @@ void func1(void)
 	{
 		ton=20;
 		flag=0;
-	}
+	}*/
+
+	DIO_TglPin(PortA , Pin2);
 }
 
 void func2(void)
 {
-	static u8 c=0;
+	/*static u8 c=0;
 	c++;
 	if (c==ton)
 	{
@@ -43,22 +45,33 @@ void func2(void)
 	{
 		DIO_WrtPin(PortD , Pin4 , Pin_High);
 		c=0;
-	}
+	}*/
 }
 
 int main()
 {
 	sei();
-	EXI_Enable(EX_INT0);
-	EXTI_TriggerEdge(EX_INT0,FALLING_EDGE);
+	DIO_SetDir(PortD , Pin2 , Pin_Input);
+	DIO_ENPullup(PortD , Pin2);
+	DIO_SetDir(PortD , Pin4 , Pin_Output);
+	DIO_SetDir(PortA , Pin2 , Pin_Output);
+
+	DIO_WrtPin(PortA , Pin2 , 0);
+
 
 	DIO_EXTI_CallBack(EX_INT0 , func1);
-	Timer0_Oc_SetCallBack(func2);
-	Timer0_init(CTC_MODE , PRESCALER_8 , DISSCONNECT_MODE);
-	OCR0 = 99;                   //each 100us -> oc interrupt
-	ttotal = 200;
+	EXTI_TriggerEdge(EX_INT0,FALLING_EDGE);
+	EXI_Enable(EX_INT0);
 
-	Timer0_OC_InterruptEnable();
+
+
+
+	//Timer0_Oc_SetCallBack(func2);
+	//Timer0_init(CTC_MODE , PRESCALER_8 , DISSCONNECT_MODE);
+	//OCR0 = 99;                   //each 100us -> oc interrupt
+	//ttotal = 200;
+
+	//Timer0_OC_InterruptEnable();
 	while(1)
 	{
 

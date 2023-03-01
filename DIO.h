@@ -2,8 +2,8 @@
 #ifndef		DIO_H
 #define		DIO_H
 
-#include "MemMap.h"
-#include "STD_TYPES.h"
+
+
 #include "BIT_MATH.h"
 
 #include "DIO_reg.h"
@@ -78,8 +78,8 @@ void DIO_DIRPort(Port_Num Port, u8 Direction);
 
 void EXI_Enable(u8 Interrupt);
 void EXI_Disable(u8 Interrupt);
-//void EXI_TriggerEdge(u8 Interrupt,u8 Edge);
-void EXI_SetCallBack(u8 Interrupt,void(*LocalPtr)(void));
+void EXTI_TriggerEdge(u8 Interrupt,u8 Edge);
+void DIO_EXTI_CallBack(u8 Interrupt,void(*LocalPtr)(void));
 
 
 #endif
