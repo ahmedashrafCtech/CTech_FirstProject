@@ -26,3 +26,8 @@
  *
  * Return Type	    Return Decription
  */
+void M_UART_Init(void);
+
+void M_UART_Transmit(u8 Copy_u8Data);
+
+u8 M_UART_Receive(void);
