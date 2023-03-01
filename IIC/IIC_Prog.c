@@ -36,32 +36,7 @@ void M_IIC_void_sendStop(void)
 	TWCR_REG = (1<<TWINT_BIT)|(1<<TWEN_BIT)| (1<<TWSTO_BIT);
 }
 
-void M_IIC_void_receiveByte_ACK(u8 * ptr)
-{
-	// clear flag , enable TWI , Enable ACK
-	TWCR_REG = (1<<TWINT_BIT) | (1<<TWEN_BIT) | (1<< TWEA_BIT);
-	// wait until job is done
-	while(GET_BIT(TWCR_REG,TWINT_BIT) == 0);
 
-	// return data
-	*ptr =  TWDR_REG;
-}
-void M_IIC_void_receiveByte_NoACK(u8 * ptr)
-{
-	// clear ACK enable
-	WRITE_BIT(TWCR_REG,TWEA_BIT,0);
-	// clear flag , enable TWI
-	TWCR_REG = (1<<TWINT_BIT) | (1<<TWEN_BIT);
-
-	// wait until job is done
-	while(GET_BIT(TWCR_REG,TWINT_BIT) == 0);
-	// return data
-	*ptr =  TWDR_REG;
-}
-u8   M_IIC_u8_getStatus(void)
-{
-	return (TWSR_REG & IIC_STATUS_MASK);
-}
 void M_IIC_void_sendByte(u8 copy_u8data)
 {
 	//load data to be sent to  data register (SLA+R/W or msg)
@@ -70,4 +45,8 @@ void M_IIC_void_sendByte(u8 copy_u8data)
 	TWCR_REG = (1<<TWINT_BIT) | (1<<TWEN_BIT);
 	// wait until job is done
 	while(GET_BIT(TWCR_REG,TWINT_BIT) == 0);
+}
+u8   M_IIC_u8_getStatus(void)
+{
+	return (TWSR_REG & IIC_STATUS_MASK);
 }

@@ -30,8 +30,6 @@ void M_IIC_void_Init(void);
 void M_IIC_void_sendByte(u8 copy_u8data);
 void M_IIC_void_sendStart(void);
 void M_IIC_void_sendStop(void);
-void M_IIC_void_receiveByte_ACK(u8 * ptr);
-void M_IIC_void_receiveByte_NoACK(u8 * ptr);
 u8   M_IIC_u8_getStatus(void);
 
 
