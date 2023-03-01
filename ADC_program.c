@@ -129,7 +129,7 @@ u16 ADC_u8Getvalue()
 {
 u16 local_u8value=0;
 #if ADC_ADJUSTMENT ==ADC_RIGHT
-local_u8value=ADCL+ADCH<<8;
+local_u8value=ADCL+(ADCH<<8);
 return local_u8value;
 #elif ADC_ADJUSTMENT ==ADC_LEFT
 local_u8value=(ADCH<<2);
